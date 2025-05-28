@@ -1,11 +1,9 @@
-let count = 0;
-
-export function incrementCounter() {
-  count++;
-  updateDisplay();
-}
-
-function updateDisplay() {
-  const el = document.getElementById("counter");
-  if (el) el.textContent = `Tareas completadas: ${count}`;
+export function setupCounter(element) {
+  let counter = 0
+  const setCounter = (count) => {
+    counter = count
+    element.innerHTML = `count is ${counter}`
+  }
+  element.addEventListener('click', () => setCounter(counter + 1))
+  setCounter(0)
 }
